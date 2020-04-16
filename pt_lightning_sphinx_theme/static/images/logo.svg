@@ -69,8 +69,8 @@
        font-size="34"
        font-weight="normal"
        line-spacing="29"
-       letter-spacing="-2.675"
-       style="font-weight:normal;font-size:34px;font-family:FreightSans,Helvetica Neue,Helvetica,Arial,sans-serif;letter-spacing:-1.0;fill:#600092">
+       letter-spacing="-1"
+       style="font-weight:normal;font-size:34px;font-family:Avenir-Book,Avenir,FreightSans,Helvetica Neue,Helvetica,Arial,sans-serif;letter-spacing:-1;fill:#600092">
       <tspan
          x="53"
          y="37"

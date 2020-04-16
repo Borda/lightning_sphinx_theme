@@ -9721,24 +9721,15 @@ pre {
 }
 
 .header-logo {
-  height: 23px;
-  width: 93px;
-  background-image: url("../images/logo.svg");
+  height: 27px;
+  width: 300px;
+  background-image: url(../images/logo.svg);
+  background-position: left;
+  background-size: 220px,220px;
   background-repeat: no-repeat;
-  background-size: 93px 23px;
   display: block;
   float: left;
   z-index: 10;
-}
-@media screen and (min-width: 1100px) {
-  .header-logo {
-    background-size: 254px 27px;
-    position: absolute;
-    height: 27px;
-    width: 254px;
-    top: 4px;
-    float: none;
-  }
 }
 
 .main-menu-open-button {

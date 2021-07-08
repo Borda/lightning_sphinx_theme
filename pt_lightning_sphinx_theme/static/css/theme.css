@@ -9766,7 +9766,7 @@ pre {
   height: 17px;
   position: absolute;
   right: 0;
-  top: 4px;
+  top: 8px;
 }
 @media screen and (min-width: 1100px) {
   .main-menu-open-button {
@@ -9907,7 +9907,7 @@ pre {
   position: absolute;
   right: 0;
   width: 24px;
-  top: -4px;
+  top: 1px;
 }
 
 .mobile-main-menu-header-container {

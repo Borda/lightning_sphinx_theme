@@ -50,6 +50,10 @@
     top: 4px;
     float: none;
   }
+
+  @include sphinx-full-size {
+    width: $desktop_menu_width;
+  }
 }
 
 .main-menu-open-button {

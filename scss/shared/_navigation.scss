@@ -61,7 +61,7 @@
   height: 17px;
   position: absolute;
   right: 0;
-  top: 4px;
+  top: 8px;
   @include full-nav-menu-desktop {
     display: none;
   }
@@ -190,7 +190,7 @@
   position: absolute;
   right: 0;
   width: 24px;
-  top: -4px;
+  top: 1px;
 }
 
 .mobile-main-menu-header-container {
@@ -201,12 +201,12 @@
   display: flex;
   align-items: center;
   padding-left: rem(45px);
-  height: 90vh;
-  margin-top: -25px;
-  padding-top: 50%;
+  height: -moz-calc(100% - 68px);
+  height: -webkit-calc(100% - 68px);
+  height: calc(100% - 68px);
   overflow-y: scroll;
   .main-menu {
-    height: 100vh;
+    height: 100%;
   }
 }
 

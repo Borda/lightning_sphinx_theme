@@ -31,20 +31,22 @@
 }
 
 .header-logo {
-  height: 23px;
-  width: 93px;
-  background-image: url("../images/logo.svg");
+  height: 32px;
+  width: -moz-calc(100% - 25px);
+  width: -webkit-calc(100% - 25px);
+  width: calc(100% - 25px);
+  background-image: url("../images/logo_light.svg"), url("../images/logo.svg");
   background-repeat: no-repeat;
-  background-size: 93px 23px;
+  background-size: contain;
   display: block;
   float: left;
   z-index: 10;
 
   @include full-nav-menu-desktop {
-    background-size: 108px 27px;
+    background-size: contain;
     position: absolute;
-    height: 27px;
-    width: 108px;
+    height: 43px;
+    width: 25%;
     top: 4px;
     float: none;
   }

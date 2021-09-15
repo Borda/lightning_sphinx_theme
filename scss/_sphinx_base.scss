@@ -1117,8 +1117,7 @@ a:hover {
     @include animated_border_hover_state;
     &:hover {
       background-color: $white;
-      //border: 1px solid #e2e2e2;
-      //border-bottom: none;
+      border: 1px solid #e2e2e2;
 
       p.card-summary {
         color: $not_quite_black;

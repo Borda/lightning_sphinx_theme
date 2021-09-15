@@ -11456,6 +11456,7 @@ a:hover {
 }
 #tutorial-cards-container .card.tutorials-card:hover {
   background-color: #ffffff;
+  border: 1px solid #e2e2e2;
 }
 #tutorial-cards-container .card.tutorials-card:hover p.card-summary {
   color: #262626;

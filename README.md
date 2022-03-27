@@ -94,7 +94,7 @@ Now copy paste the following into the `.env.json`
 ```json
 {
     "DOCS_DIR": "path/to/pytorch_lightning/docs/",
-    "TUTORIALS_DIR": "path/to/tutorial/directory"
+    "TUTORIALS_DIR": "path/to/tutorial/directory/docs"
 }
 ```
 

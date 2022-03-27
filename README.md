@@ -3,15 +3,21 @@
 Sphinx theme for [PyTorch-Lightning Docs](https://pytorch-lightning.readthedocs.io/en/latest/) based on the [Read the Docs Sphinx Theme](https://sphinx-rtd-theme.readthedocs.io/en/latest).
 
 ## Setup the project for local development
+This theme requires running both python commands and javascript (npm) commands
 
-Install with:
+### Step 1: Python setup
+Setup the project with:
 ```
 # install project
 python setup.py install
 
 # install deps
 pip install -r docs/requirements.txt
+```
 
+### Step 2: setup the javascript things
+First, install the things in package.json
+```bash
 # run yarn install (uses `package.json`)
 # you need node version 8.4.0
 yarn install
@@ -21,6 +27,16 @@ Now [install NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-
 
 ```
 npm install
+```
+
+Finally make sure `grunt` works (we use grunt to see changes in real-time... ie: `hot-reload`)
+```bash
+grunt
+```
+
+if you don't see a help message, install it with:
+```bash
+sudo npm install -g grunt-cli 
 ```
 
 ## Link the theme to the Lightning docs
@@ -40,9 +56,7 @@ Now copy paste the following into the `.env.json`
 ```
 
 ## Development
-To see real-time changes to the theme, use grunt (javascript package for 'live reloading')
-
-Run grunt to build the html site and enable live reloading of the demo app at `localhost:1919`:
+Run the docs this way
 
 ```
 grunt --project=docs

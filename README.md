@@ -3,16 +3,46 @@
 Sphinx theme for [PyTorch-Lightning Docs](https://pytorch-lightning.readthedocs.io/en/latest/) based on the [Read the Docs Sphinx Theme](https://sphinx-rtd-theme.readthedocs.io/en/latest).
 
 ## Setup the project for local development
-This theme requires running both python commands and javascript (npm) commands
+This theme requires running both python commands and javascript (npm) commands.
+
+### Step 0: Make sure you're on the conda environment you are using for pytorch-lightning
+```bash
+conda activate my-pl-env
+```
 
 ### Step 1: Python setup
-Setup the project with:
+First, install all the docs deps for lightning
+```bash
+cd /path/to/pytorch-lightning
+
+# install the docs requirements
+git submodule update --init --recursive
+pip install -r requirements/docs.txt
 ```
+
+Setup the lightning_sphinx_theme
+```
+cd /path/to/lightning_sphinx_theme
+
 # install project
 python setup.py install
 
 # install deps
 pip install -r docs/requirements.txt
+```
+
+If you're on a mac with conda, and you get this error:
+```
+>> Pandoc wasn't found.
+>> Please check that pandoc is installed:
+>> https://pandoc.org/installing.html
+>> Exited with code: 2.
+```
+
+then try the following command ([from this answer](https://stackoverflow.com/questions/62398231/building-docs-fails-due-to-missing-pandoc))
+```
+pip uninstall pandoc
+conda install pandoc
 ```
 
 ### Step 2: setup the javascript things 🤮 

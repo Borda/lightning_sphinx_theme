@@ -93,8 +93,7 @@ touch .env.json
 Now copy paste the following into the `.env.json`
 ```json
 {
-    "DOCS_DIR": "path/to/pytorch_lightning/docs/",
-    "TUTORIALS_DIR": "path/to/tutorial/directory/docs"
+    "DOCS_DIR": "path/to/pytorch_lightning/docs/"
 }
 ```
 
@@ -105,7 +104,36 @@ Run the docs this way
 grunt --project=docs
 ```
 
-and to build the html site for tutorial:
+Building this will be slow at first... we recommend you disable the notebooks building (temporarily) to vastly speed up your docs development speed. To do this:
+```bash
+cd /path/to/pytorch-lightning/docs
+ls
+# (you'll see the conf.py file here). edit this document
+```
+
+In the conf.py file enable this flag
+```bash
+# default is false
+_FAST_DOCS_DEV = False
+
+# to build fast (not building the notebooks)
+_FAST_DOCS_DEV = True
+```
+
+
+### Optional: build the demo docs
+The lightning_sphinx_theme repo has a "demo" project (not lightning docs) that show you the styles very quickly.
+
+First add the following entry to `.env.json`. 
+
+```json
+{
+    "DOCS_DIR": "path/to/pytorch_lightning/docs/",
+    "TUTORIALS_DIR": "path/to/tutorial/directory/docs"
+}
+```
+
+and now build the "demo" docs with this command
 
 ```
 grunt --project=tutorials

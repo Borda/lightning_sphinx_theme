@@ -2,56 +2,47 @@
 
 Sphinx theme for [PyTorch-Lightning Docs](https://pytorch-lightning.readthedocs.io/en/latest/) based on the [Read the Docs Sphinx Theme](https://sphinx-rtd-theme.readthedocs.io/en/latest).
 
-## Local Development
+## Setup the project for local development
 
-Run python setup:
-
+Install with:
 ```
+# install project
 python setup.py install
-```
 
-and install the dependencies using `pip install -r docs/requirements.txt`
+# install deps
+pip install -r docs/requirements.txt
 
-In the root directory install the `package.json`:
-
-```
-# node version 8.4.0
+# run yarn install (uses `package.json`)
+# you need node version 8.4.0
 yarn install
-
 ```
 
-If you have `npm` installed then run:
+Now [install NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) then run:
 
 ```
 npm install
 ```
 
-- If you want to see generated documentation for `docs/demo` then create
-`.env.json` file and make it empty json file. Means `.env.json file` will
-contain
+## Link the theme to the Lightning docs
+Create an `.env.json` file that connects this theme to the lightning docs.
 
-```
-{}
-```
-
-Run grunt to build the html site and enable live reloading of the demo app at `localhost:1919`:
-
-```
-grunt
+```bash
+cd path/to/lightning_sphinx_theme
+touch .env.json
 ```
 
-- If you want to specify the project folder (docs or tutorial for which
-you want to see docs generated) then you need to specify it into `.env.json`
-file:
-
-```
+Now copy paste the following into the `.env.json`
+```json
 {
-    "DOCS_DIR": "docs/",
+    "DOCS_DIR": "path/to/pytorch_lightning/docs/",
     "TUTORIALS_DIR": "path/to/tutorial/directory"
 }
 ```
 
-Run grunt to build the html site for docs:
+## Development
+To see real-time changes to the theme, use grunt (javascript package for 'live reloading')
+
+Run grunt to build the html site and enable live reloading of the demo app at `localhost:1919`:
 
 ```
 grunt --project=docs
@@ -63,7 +54,7 @@ and to build the html site for tutorial:
 grunt --project=tutorials
 ```
 
-The resulting site is a demo.
+The resulting site is the lightning docs with the ability to change the styles.
 
 ## Testing your changes and submitting a PR
 
@@ -123,7 +114,7 @@ html_theme = 'pt_lightning_sphinx_theme'
 html_theme_path = ["../../../lightning_sphinx_theme"]
 ```
 
-Next create a file `.env.json` in the root of this repo with some keys/values referencing the local folders of the Docs and Tutorials repos:
+Next create a file `.env.json` in the root of the THEME repo with some keys/values referencing the local folders of the Docs and Tutorials repos:
 
 ```
 {

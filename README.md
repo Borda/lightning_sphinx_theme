@@ -15,7 +15,7 @@ python setup.py install
 pip install -r docs/requirements.txt
 ```
 
-### Step 2: setup the javascript things
+### Step 2: setup the javascript things 🤮 
 First, install the things in package.json
 ```bash
 # run yarn install (uses `package.json`)
@@ -23,20 +23,33 @@ First, install the things in package.json
 yarn install
 ```
 
-Now [install NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) then run:
+[Install NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) then run:
 
 ```
 npm install
 ```
 
-Finally make sure `grunt` works (we use grunt to see changes in real-time... ie: `hot-reload`)
+For good measure, make sure your npm and ruby paths are in your .bashrc or .zshrc 
+```bash
+# ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# add npm
+export PATH=/usr/local/share/npm/bin:$PATH
+```
+
+Make sure `grunt` works (we use grunt to see changes in real-time... ie: `hot-reload`)
 ```bash
 grunt
 ```
 
-if you don't see a help message, install it with:
+Install a few npm packages
 ```bash
+# provides hot reload for dev
 sudo npm install -g grunt-cli 
+
+# ?
+sudo npm install -g sass
 ```
 
 ## Link the theme to the Lightning docs

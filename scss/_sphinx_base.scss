@@ -259,6 +259,15 @@ article.pytorch-article {
 article.pytorch-article .section:first-of-type h1:first-of-type {
   margin-top: 0;
 }
+  
+
+.left-menu-link {
+    background-color: green;
+    &:hover {
+      background-color: $color_primary;
+    }
+}
+
 
 article.pytorch-article .sphx-glr-thumbcontainer {
   margin: 0;

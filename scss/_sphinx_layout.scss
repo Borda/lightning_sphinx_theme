@@ -153,6 +153,11 @@
   color: $dark_grey;
   padding-left: 10px;
   cursor: pointer;
+  float: right;
+}
+
+.menu-item-decorator {
+  color: #848484;
 }
 
 .collapse {
@@ -171,6 +176,10 @@
   margin-bottom: rem(16px);
   text-transform: none;
   white-space: normal;
+
+  &:hover {
+    background-color: red;
+  }
 }
 
 .pytorch-left-menu-search {

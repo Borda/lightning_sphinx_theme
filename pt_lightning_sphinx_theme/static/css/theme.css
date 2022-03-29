@@ -12413,6 +12413,13 @@ article.pytorch-article .section:first-of-type h1:first-of-type {
   margin-top: 0;
 }
 
+.left-menu-link {
+  background-color: green;
+}
+.left-menu-link:hover {
+  background-color: #792ee5;
+}
+
 article.pytorch-article .sphx-glr-thumbcontainer {
   margin: 0;
   border: 1px solid #d6d7d8;
@@ -13767,6 +13774,11 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   color: #6c6c6d;
   padding-left: 10px;
   cursor: pointer;
+  float: right;
+}
+
+.menu-item-decorator {
+  color: #848484;
 }
 
 .collapse {
@@ -13785,6 +13797,9 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   margin-bottom: 1rem;
   text-transform: none;
   white-space: normal;
+}
+.pytorch-left-menu p.caption:hover {
+  background-color: red;
 }
 
 .pytorch-left-menu-search {

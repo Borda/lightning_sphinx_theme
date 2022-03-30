@@ -172,10 +172,10 @@
 .pytorch-left-menu p.caption {
   display: block;
   margin-bottom: 0px;
-  padding-top: rem(8px);
-  padding-bottom: rem(8px);
   text-transform: none;
   white-space: normal;
+  border-radius: 6px;
+  padding: rem(8px);
 
   color: $primary_text;
   font-family: UCity;
@@ -187,7 +187,8 @@
   text-align: left;
 
   &:hover {
-    background-color: red;
+    background-color: #EFEEFF;
+    color: #4F00BA;
   }
 }
 
@@ -473,7 +474,7 @@
 }
 
 .pytorch-left-menu ul {
-  padding-left: 0;
+  padding-left: 8px;
 }
 
 .pytorch-right-menu {

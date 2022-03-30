@@ -13744,9 +13744,10 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 
 .pytorch-left-menu {
   display: none;
-  background-color: #f3f4f7;
+  background-color: white;
   color: #262626;
   overflow: scroll;
+  border-right: 1px solid #e2e2e2;
 }
 @media screen and (min-width: 1101px) {
   .pytorch-left-menu {
@@ -13755,7 +13756,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     overflow-y: hidden;
     padding-bottom: 110px;
     padding: 0 1.875rem 0 0;
-    width: 25%;
+    width: 22%;
     z-index: 200;
     float: left;
   }
@@ -13854,7 +13855,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   background-size: 18px 18px;
   background-position: 12px 10px;
   padding-left: 40px;
-  background-color: #ffffff;
+  background-color: #F6F8FB;
 }
 .pytorch-left-menu-search input[type=text]:focus {
   outline: 0;

@@ -120,9 +120,10 @@
 
 .pytorch-left-menu {
   display: none;
-  background-color: $light_grey;
+  background-color: white;
   color: $slate;
   overflow: scroll;
+  border-right: 1px solid #e2e2e2;
 
   @include sphinx-medium-size {
     display: block;
@@ -236,7 +237,7 @@
   background-size: 18px 18px;
   background-position: 12px 10px;
   padding-left: 40px;
-  background-color: $white;
+  background-color: #F6F8FB;
 
   &:focus {
     outline: 0;
@@ -371,6 +372,7 @@
     }
   }
 
+  // little ball next to name
   li.toctree-l1.current > a {
     color: $color_primary;
     &:before {

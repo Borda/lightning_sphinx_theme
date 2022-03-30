@@ -301,11 +301,15 @@ article.pytorch-article .sphx-glr-thumbcontainer {
 
   .caption-text {
     a {
-      font-size: rem(16px);
-      color: $not_quite_black;
-      letter-spacing: 0;
-      line-height: rem(24px);
+      color: $primary_text;
       text-decoration: none;
+      font-family: UCity;
+      font-size: rem(14px);
+      font-style: normal;
+      font-weight: 600;
+      line-height: rem(20px);
+      letter-spacing: 0px;
+      text-align: left;
     }
   }
 

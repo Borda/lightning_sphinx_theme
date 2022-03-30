@@ -170,15 +170,21 @@
 }
 
 .pytorch-left-menu p.caption {
-  color: $not_quite_black;
   display: block;
-  font-size: rem(16px);
-  line-height: rem(22px);
   margin-bottom: 0px;
   padding-top: rem(8px);
   padding-bottom: rem(8px);
   text-transform: none;
   white-space: normal;
+
+  color: $primary_text;
+  font-family: UCity;
+  font-size: rem(14px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: rem(20px);
+  letter-spacing: 0px;
+  text-align: left;
 
   &:hover {
     background-color: red;

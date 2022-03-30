@@ -152,8 +152,9 @@
 .expand-menu, .hide-menu {
   color: $dark_grey;
   padding-left: 10px;
-  cursor: pointer;
+  cursor: none;
   float: right;
+  pointer-events: none;
 }
 
 .menu-item-decorator {
@@ -173,7 +174,9 @@
   display: block;
   font-size: rem(16px);
   line-height: rem(22px);
-  margin-bottom: rem(16px);
+  margin-bottom: 0px;
+  padding-top: rem(8px);
+  padding-bottom: rem(8px);
   text-transform: none;
   white-space: normal;
 

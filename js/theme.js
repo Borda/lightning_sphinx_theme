@@ -334,8 +334,6 @@ $(document).ready(function() {
         // show the list
         $(this).next("ul").toggle()
         
-        var menuName = $(this).text().replace(/[^\w\s]/gi, "").trim();
-
         sessionStorage.setItem(menuName, "expand");
     }
   });

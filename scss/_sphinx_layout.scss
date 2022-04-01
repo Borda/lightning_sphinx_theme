@@ -376,17 +376,14 @@
   li.toctree-l1.current > a {
     color: $color_primary;
     &:before {
-      content: "\2022";
-      display: inline-block;
+      content: "";
+      display: block;
+      width: 120px;
+      height: 2px;
+      background: #000;
+      left: 0;
+      top: 50%;
       position: absolute;
-      left: -15px;
-      top: -10%;
-      font-size: rem(22px);
-      color: $color_primary;
-
-      @include sphinx-medium-size {
-        left: -20px;
-      }
     }
   }
 
@@ -477,6 +474,11 @@
 
 .pytorch-left-menu ul {
   padding-left: 8px;
+  margin-left: 10px;
+
+  a {
+    // TODO: hover square with color here
+  }
 }
 
 .pytorch-right-menu {

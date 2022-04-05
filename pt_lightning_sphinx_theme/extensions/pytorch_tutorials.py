@@ -133,6 +133,7 @@ class CustomCalloutItemDirective(Directive):
         "button_text": directives.unchanged,
         "col_css": directives.unchanged,
         "card_style": directives.unchanged,
+        "image_center": directives.unchanged
     }
 
     def run(self):
@@ -166,6 +167,11 @@ class CustomCalloutItemDirective(Directive):
                 card_style = self.options["card_style"]
             else:
                 card_style = "text-container"
+            
+            if "image_center" in self.options:
+                image_center = "<img src='" + self.options["image_center"] + "'>"
+            else:
+                image_center = ""
 
         except FileNotFoundError as e:
             print(e)
@@ -176,7 +182,7 @@ class CustomCalloutItemDirective(Directive):
             return []
 
         callout_rst = CALLOUT_TEMPLATE.format(
-            description=description, header=header, button_link=button_link, button_text=button_text, col_css=col_css, card_style=card_style
+            description=description, image_center=image_center, header=header, button_link=button_link, button_text=button_text, col_css=col_css, card_style=card_style
         )
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
@@ -190,9 +196,83 @@ CALLOUT_TEMPLATE = """
     <div class="{col_css}">
         <a href="{button_link}">
             <div class="{card_style}">
+                    <div class="image-center">{image_center}</div>
                     <h3>{header}</h3>
                     <p class="body-paragraph">{description}</p>
             </div>
         </a>
+    </div>
+"""
+
+
+
+class DisplayItemDirective(Directive):
+    option_spec = {
+        "header": directives.unchanged,
+        "description": directives.unchanged,
+        "col_css": directives.unchanged,
+        "card_style": directives.unchanged,
+        "image_center": directives.unchanged,
+        "height": directives.unchanged,
+    }
+
+    def run(self):
+        try:
+            if "description" in self.options:
+                description = self.options["description"]
+            else:
+                description = ""
+            
+            if "height" in self.options:
+                height = self.options["height"]
+            else:
+                height = ""
+
+            if "header" in self.options:
+                header = self.options["header"]
+            else:
+                raise ValueError("header not doc found")
+ 
+            if "col_css" in self.options:
+                col_css = self.options["col_css"]
+            else:
+                col_css = "col-md-6"
+            
+            if "card_style" in self.options:
+                card_style = self.options["card_style"]
+            else:
+                card_style = "display-card"
+            
+            if "image_center" in self.options:
+                image_center = "<img src='" + self.options["image_center"] + "'>"
+            else:
+                image_center = ""
+
+        except FileNotFoundError as e:
+            print(e)
+            return []
+        except ValueError as e:
+            print(e)
+            raise
+            return []
+
+        callout_rst = DISPLAY_ITEM_TEMPLATE.format(
+            description=description, height=height, image_center=image_center, header=header, col_css=col_css, card_style=card_style
+        )
+        callout_list = StringList(callout_rst.split("\n"))
+        callout = nodes.paragraph()
+        self.state.nested_parse(callout_list, self.content_offset, callout)
+        return [callout]
+
+
+DISPLAY_ITEM_TEMPLATE = """
+.. raw:: html
+
+    <div class="{col_css}">
+        <div class="{card_style}" style='height:{height}px'>
+                <div class="image-center">{image_center}</div>
+                <h3>{header}</h3>
+                <p class="body-paragraph">{description}</p>
+        </div>
     </div>
 """

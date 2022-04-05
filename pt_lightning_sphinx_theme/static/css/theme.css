@@ -13468,6 +13468,37 @@ a:hover {
   background-color: #dee2e6;
 }
 
+article.pytorch-article .display-card-container .col-md-3 {
+  padding: 5px;
+}
+article.pytorch-article .display-card-container h3 {
+  margin: 5px 0 10px 0;
+}
+article.pytorch-article .display-card-container .display-card {
+  padding-bottom: 10px;
+  border: 1px solid #cfcfcf;
+  border-radius: 5px;
+  padding: 10px;
+}
+article.pytorch-article .display-card-container .display-card .body-paragraph {
+  color: #666666;
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+article.pytorch-article .display-card-container .display-card .image-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: auto;
+}
+article.pytorch-article .display-card-container .display-card .image-center img {
+  max-height: 150px;
+  margin: auto;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
 article.pytorch-article .tutorials-callout-container {
   padding-bottom: 50px;
 }

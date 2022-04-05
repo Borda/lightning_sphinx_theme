@@ -13,7 +13,7 @@
 # limitations under the License.
 from docutils import nodes
 from docutils.statemachine import StringList
-from pt_lightning_sphinx_theme.extensions.pytorch_tutorials import cardnode, CustomCalloutItemDirective, CustomCardItemDirective
+from pt_lightning_sphinx_theme.extensions.pytorch_tutorials import cardnode, CustomCalloutItemDirective, CustomCardItemDirective, DisplayItemDirective
 from sphinx.util.docutils import SphinxDirective
 
 
@@ -138,6 +138,7 @@ def setup(app):
     )
 
     app.add_directive("customcarditem", CustomCardItemDirective)
+    app.add_directive("displayitem", DisplayItemDirective)
     app.add_directive("customcalloutitem", CustomCalloutItemDirective)
     app.add_directive("tutoriallist", TutorialListDirective)
 

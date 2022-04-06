@@ -213,6 +213,7 @@ class DisplayItemDirective(Directive):
         "col_css": directives.unchanged,
         "card_style": directives.unchanged,
         "image_center": directives.unchanged,
+        "image_right": directives.unchanged,
         "height": directives.unchanged,
     }
 
@@ -243,10 +244,16 @@ class DisplayItemDirective(Directive):
             else:
                 card_style = "display-card"
             
+            image_class = ''
             if "image_center" in self.options:
-                image_center = "<img src='" + self.options["image_center"] + "'>"
+                image = "<img src='" + self.options["image_center"] + "'>"
+                image_class = 'image-center'
+            
+            elif "image_right" in self.options:
+                image = "<img src='" + self.options["image_right"] + "'>"
+                image_class = 'image-right'
             else:
-                image_center = ""
+                image = ""
 
         except FileNotFoundError as e:
             print(e)
@@ -257,7 +264,13 @@ class DisplayItemDirective(Directive):
             return []
 
         callout_rst = DISPLAY_ITEM_TEMPLATE.format(
-            description=description, height=height, image_center=image_center, header=header, col_css=col_css, card_style=card_style
+            description=description, 
+            image=image, 
+            height=height, 
+            image_class=image_class,
+            header=header, 
+            col_css=col_css, 
+            card_style=card_style
         )
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
@@ -270,7 +283,7 @@ DISPLAY_ITEM_TEMPLATE = """
 
     <div class="{col_css}">
         <div class="{card_style}" style='height:{height}px'>
-                <div class="image-center">{image_center}</div>
+                <div class="{image_class}">{image}</div>
                 <h3>{header}</h3>
                 <p class="body-paragraph">{description}</p>
         </div>

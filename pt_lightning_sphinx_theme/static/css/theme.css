@@ -13471,6 +13471,12 @@ a:hover {
 article.pytorch-article .display-card-container .col-md-3 {
   padding: 5px;
 }
+article.pytorch-article .display-card-container .col-md-4 {
+  padding: 5px;
+}
+article.pytorch-article .display-card-container .col-md-2 {
+  padding: 5px;
+}
 article.pytorch-article .display-card-container h3 {
   margin: 5px 0 10px 0;
 }
@@ -13493,9 +13499,19 @@ article.pytorch-article .display-card-container .display-card .image-center {
   margin: auto;
 }
 article.pytorch-article .display-card-container .display-card .image-center img {
-  max-height: 150px;
+  height: 125px;
   margin: auto;
   width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+article.pytorch-article .display-card-container .display-card .image-right {
+  float: right;
+  height: 100%;
+}
+article.pytorch-article .display-card-container .display-card .image-right img {
+  height: 100%;
+  width: auto;
   -o-object-fit: contain;
      object-fit: contain;
 }

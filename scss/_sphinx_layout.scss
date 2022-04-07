@@ -317,8 +317,16 @@
     padding: 0;
     text-decoration: none;
     &.reference.internal {
-      margin-bottom: rem(5px);
+      height: 25px;
+      padding: 5px 5px 5px 0;
+      border-radius: 6px;
       position: relative;
+      width: 100%;
+
+      &:hover {
+        background-color: #EFEEFF;
+        color: #4F00BA;
+      }
     }
   }
 
@@ -372,17 +380,18 @@
     }
   }
 
-  // little ball next to name
+  // the toctree menu (currently selected)
   li.toctree-l1.current > a {
     color: $color_primary;
+ 
     &:before {
       content: "";
       display: block;
-      width: 120px;
-      height: 2px;
-      background: #000;
-      left: 0;
-      top: 50%;
+      width: 2px;
+      height: 100%;
+      background: $color_primary;
+      left: -5px;
+      top: 0;
       position: absolute;
     }
   }
@@ -473,7 +482,7 @@
 }
 
 .pytorch-left-menu ul {
-  padding-left: 8px;
+  padding-left: 0;
   margin-left: 10px;
 
   a {

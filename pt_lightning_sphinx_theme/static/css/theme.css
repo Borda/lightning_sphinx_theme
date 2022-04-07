@@ -13987,8 +13987,20 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-right-menu a:link.reference.internal,
 .pytorch-right-menu a:visited.reference.internal,
 .pytorch-right-menu a:hover.reference.internal {
-  margin-bottom: 0.3125rem;
+  height: 25px;
+  padding: 5px 5px 5px 0;
+  border-radius: 6px;
   position: relative;
+  width: 100%;
+}
+.pytorch-left-menu a:link.reference.internal:hover,
+.pytorch-left-menu a:visited.reference.internal:hover,
+.pytorch-left-menu a:hover.reference.internal:hover,
+.pytorch-right-menu a:link.reference.internal:hover,
+.pytorch-right-menu a:visited.reference.internal:hover,
+.pytorch-right-menu a:hover.reference.internal:hover {
+  background-color: #EFEEFF;
+  color: #4F00BA;
 }
 .pytorch-left-menu li code,
 .pytorch-right-menu li code {
@@ -14027,11 +14039,11 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 .pytorch-right-menu li.toctree-l1.current > a:before {
   content: "";
   display: block;
-  width: 120px;
-  height: 2px;
-  background: #000;
-  left: 0;
-  top: 50%;
+  width: 2px;
+  height: 100%;
+  background: #792ee5;
+  left: -5px;
+  top: 0;
   position: absolute;
 }
 .pytorch-left-menu li.toctree-l1.current li.toctree-l2 > ul, .pytorch-left-menu li.toctree-l2.current li.toctree-l3 > ul,
@@ -14087,7 +14099,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   cursor: pointer;
 }
 .pytorch-left-menu ul {
-  padding-left: 8px;
+  padding-left: 0;
   margin-left: 10px;
 }
 .pytorch-right-menu a:link,

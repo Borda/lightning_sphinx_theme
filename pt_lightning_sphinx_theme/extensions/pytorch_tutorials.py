@@ -133,7 +133,7 @@ class CustomCalloutItemDirective(Directive):
         "button_text": directives.unchanged,
         "col_css": directives.unchanged,
         "card_style": directives.unchanged,
-        "image_center": directives.unchanged
+        "image_center": directives.unchanged,
     }
 
     def run(self):
@@ -214,6 +214,7 @@ class DisplayItemDirective(Directive):
         "card_style": directives.unchanged,
         "image_center": directives.unchanged,
         "image_right": directives.unchanged,
+        "image_height": directives.unchanged,
         "height": directives.unchanged,
     }
 
@@ -244,13 +245,18 @@ class DisplayItemDirective(Directive):
             else:
                 card_style = "display-card"
             
+            if "image_height" in self.options:
+                image_height = self.options["image_height"]
+            else:
+                image_height = "125px"
+            
             image_class = ''
             if "image_center" in self.options:
-                image = "<img src='" + self.options["image_center"] + "'>"
+                image = "<img src='" + self.options["image_center"] + "' style=height:" + image_height + "  >"
                 image_class = 'image-center'
             
             elif "image_right" in self.options:
-                image = "<img src='" + self.options["image_right"] + "'>"
+                image = "<img src='" + self.options["image_right"] + "' style=height:" + image_height + "  >"
                 image_class = 'image-right'
             else:
                 image = ""

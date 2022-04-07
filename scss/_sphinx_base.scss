@@ -65,6 +65,11 @@ p {
   color: $color_primary;
 }
 
+.hidden {
+  display: none;
+}
+
+
 ul.pytorch-breadcrumbs {
   padding-left: 0;
   list-style-type: none;
@@ -267,7 +272,6 @@ article.pytorch-article .section:first-of-type h1:first-of-type {
       background-color: $color_primary;
     }
 }
-
 
 article.pytorch-article .sphx-glr-thumbcontainer {
   margin: 0;
@@ -1236,6 +1240,10 @@ article.pytorch-article {
 
     h3 {
       margin: 5px 0 10px 0;
+    }
+
+    .display-card-hover {
+      @include animated_card_hover;
     }
     
     // the card for display items

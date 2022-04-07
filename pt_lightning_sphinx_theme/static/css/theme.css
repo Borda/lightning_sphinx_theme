@@ -12183,6 +12183,9 @@ article.pytorch-article blockquote {
   margin-bottom: 2.5rem;
   width: 65%;
 }
+article.pytorch-article .hidden {
+  display: none;
+}
 article.pytorch-article img {
   width: 100%;
 }
@@ -12229,6 +12232,10 @@ p a:hover {
 
 .wy-breadcrumbs li a {
   color: #792ee5;
+}
+
+.hidden {
+  display: none;
 }
 
 ul.pytorch-breadcrumbs {
@@ -13479,6 +13486,23 @@ article.pytorch-article .display-card-container .col-md-2 {
 }
 article.pytorch-article .display-card-container h3 {
   margin: 5px 0 10px 0;
+}
+@media screen and (min-width: 768px) {
+  article.pytorch-article .display-card-container .display-card-hover:after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    top: calc(100% - 12px);
+    left: 15px;
+    background-color: #792ee5;
+    -webkit-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+  }
+  article.pytorch-article .display-card-container .display-card-hover:hover:after {
+    width: calc(100% - 30px);
+  }
 }
 article.pytorch-article .display-card-container .display-card {
   padding-bottom: 10px;

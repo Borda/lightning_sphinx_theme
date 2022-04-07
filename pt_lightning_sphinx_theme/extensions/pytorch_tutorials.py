@@ -215,6 +215,7 @@ class DisplayItemDirective(Directive):
         "image_center": directives.unchanged,
         "image_right": directives.unchanged,
         "image_height": directives.unchanged,
+        "button_link": directives.unchanged,
         "height": directives.unchanged,
     }
 
@@ -260,6 +261,16 @@ class DisplayItemDirective(Directive):
                 image_class = 'image-right'
             else:
                 image = ""
+            
+            if "button_link" in self.options:
+                button_link = self.options["button_link"]
+                button_open_html = f"<a href='{button_link}'>"
+                button_close_html = "</a>"
+                card_style = f'{card_style} display-card-hover'
+            else:
+                button_link = ""
+                button_open_html = ""
+                button_close_html = ""
 
         except FileNotFoundError as e:
             print(e)
@@ -276,7 +287,9 @@ class DisplayItemDirective(Directive):
             image_class=image_class,
             header=header, 
             col_css=col_css, 
-            card_style=card_style
+            card_style=card_style,
+            button_open_html=button_open_html,
+            button_close_html=button_close_html
         )
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
@@ -288,10 +301,12 @@ DISPLAY_ITEM_TEMPLATE = """
 .. raw:: html
 
     <div class="{col_css}">
+        {button_open_html}
         <div class="{card_style}" style='height:{height}px'>
                 <div class="{image_class}">{image}</div>
                 <h3>{header}</h3>
                 <p class="body-paragraph">{description}</p>
         </div>
+        {button_close_html}
     </div>
 """

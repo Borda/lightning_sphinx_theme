@@ -7,11 +7,11 @@ $sphinx_left_menu_scroll_wrapper_width: 120%;
 $sphinx_content_wrap_width: 71%;
 $sphinx_content_wrap_left_margin: 26.4%;
 
-$sphinx_article_width: 75%;
+$sphinx_article_width: 73%;
 
 $sphinx_right_menu_wrap_left_margin: 2%;
 $sphinx_right_menu_left_margin: 81.5%;
-$sphinx_right_menu_scroll_wrapper_width: 120%;
+$sphinx_right_menu_scroll_wrapper_width: 100%;
 
 $sphinx_page_bar_left_margin: 25%;
 $sphinx_page_bar_left_padding: 2%;
@@ -63,10 +63,6 @@ p {
 
 .wy-breadcrumbs li a {
   color: $color_primary;
-}
-
-.hidden {
-  display: none;
 }
 
 
@@ -1226,15 +1222,24 @@ a:hover {
 
 article.pytorch-article {
   .display-card-container {
+    
+    .col-md-2 {
+      padding: 5px;
+    }
+    
     .col-md-3 {
       padding: 5px;
     }
-
+    
     .col-md-4 {
       padding: 5px;
     }
     
-    .col-md-2 {
+    .col-md-6 {
+      padding: 5px;
+    }
+
+    .col-md-12 {
       padding: 5px;
     }
 
@@ -1288,7 +1293,7 @@ article.pytorch-article {
     padding-bottom: 50px;
 
     .col-md-6 {
-      padding-bottom: 10px;
+      padding: 5px;
     }
 
 

@@ -51,13 +51,13 @@
 
   @include sphinx-medium-size {
     margin-top: 0;
-    margin-left: 3%;
+    margin-left: 20px;
     width: $sphinx_article_width;
     float: left;
   }
 
   @include sphinx-full-size {
-    width: 850px;
+    width: $sphinx_article_width;
     margin-left: 30px;
   }
 
@@ -89,7 +89,7 @@
   }
 
   @include sphinx-full-size {
-    width: $desktop_menu_width - 70px;
+    width: 24%;
   }
 }
 
@@ -269,8 +269,8 @@
     &.scrolling-fixed {
       position: fixed;
       top: 45px;
-      left: 83.5%;
-      width: 14%;
+      left: 81.1%;
+      width: 17%;
     }
 
     &.scrolling-absolute {
@@ -281,12 +281,12 @@
 
   @include sphinx-full-size {
     left: 0;
-    width: 380px;
+    width: 100%;
 
     &.scrolling-fixed {
       position: fixed;
       top: 45px;
-      left: 1230px;
+      left: 80%;
     }
 
     &.scrolling-absolute {
@@ -317,8 +317,9 @@
     padding: 0;
     text-decoration: none;
     &.reference.internal {
-      height: 25px;
-      padding: 5px 5px 5px 0;
+      min-height: 25px;
+      height: auto;
+      padding: 5px;
       border-radius: 6px;
       position: relative;
       width: 100%;
@@ -483,7 +484,7 @@
 
 .pytorch-left-menu ul {
   padding-left: 0;
-  margin-left: 10px;
+  margin-left: 5px;
 
   a {
     // TODO: hover square with color here
@@ -572,14 +573,14 @@
   }
 
   @include sphinx-full-size {
-    width: 400px;
+    width: 100%;
   }
 
   padding-top: 20px;
 
   > ul {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 20px;
+    padding-right: 0;
     margin-bottom: 0;
 
     @include sphinx-full-size {

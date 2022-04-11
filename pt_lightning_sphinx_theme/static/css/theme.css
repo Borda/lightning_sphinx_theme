@@ -13785,7 +13785,7 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 @media screen and (min-width: 1600px) {
   .pytorch-content-right {
-    width: 25%;
+    width: 24%;
     padding-right: 5px;
   }
 }
@@ -13964,7 +13964,8 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     position: fixed;
     top: 45px;
     left: 81.1%;
-    width: 17%;
+    width: 19%;
+    padding-right: 10px;
   }
   .pytorch-right-menu.scrolling-absolute {
     position: absolute;

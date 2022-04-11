@@ -90,7 +90,7 @@
   }
 
   @include sphinx-full-size {
-    width: 25%;
+    width: 24%;
     padding-right: 5px;
   }
 }
@@ -272,7 +272,8 @@
       position: fixed;
       top: 45px;
       left: 81.1%;
-      width: 17%;
+      width: 19%;
+      padding-right: 10px;
     }
 
     &.scrolling-absolute {

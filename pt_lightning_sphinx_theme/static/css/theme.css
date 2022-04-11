@@ -13780,11 +13780,13 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
     width: 25%;
     float: left;
     height: 100%;
+    padding-right: 5px;
   }
 }
 @media screen and (min-width: 1600px) {
   .pytorch-content-right {
-    width: 24%;
+    width: 25%;
+    padding-right: 5px;
   }
 }
 

@@ -86,10 +86,12 @@
     width: 25%;
     float: left;
     height: 100%;
+    padding-right: 5px;
   }
 
   @include sphinx-full-size {
-    width: 24%;
+    width: 25%;
+    padding-right: 5px;
   }
 }
 

@@ -13506,6 +13506,18 @@ article.pytorch-article .display-card-container h3 {
     width: calc(100% - 30px);
   }
 }
+article.pytorch-article .display-card-container .card-tag {
+  position: absolute;
+  bottom: 17px;
+  left: 15px;
+  padding: 2px 3px 2px 3px;
+  border: 1px solid #792ee5;
+  color: #792ee5;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
 article.pytorch-article .display-card-container .display-card {
   padding-bottom: 10px;
   border: 1px solid #cfcfcf;

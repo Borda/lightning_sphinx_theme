@@ -1251,6 +1251,19 @@ article.pytorch-article {
       @include animated_card_hover;
     }
     
+    .card-tag {
+      position: absolute;
+      bottom: 17px;
+      left: 15px;
+      padding: 2px 3px 2px 3px;
+      border: 1px solid $color_primary;
+      color: $color_primary;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+
     // the card for display items
     .display-card {
       padding-bottom: 10px;

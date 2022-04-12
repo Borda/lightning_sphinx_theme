@@ -217,6 +217,7 @@ class DisplayItemDirective(Directive):
         "image_height": directives.unchanged,
         "button_link": directives.unchanged,
         "height": directives.unchanged,
+        "tag": directives.unchanged,
     }
 
     def run(self):
@@ -226,6 +227,11 @@ class DisplayItemDirective(Directive):
             else:
                 description = ""
             
+            if "tag" in self.options:
+                tag = "<div class='card-tag'>" + self.options["tag"] + "</div>"
+            else:
+                tag = ""
+
             if "height" in self.options:
                 height = self.options["height"]
             else:
@@ -289,7 +295,8 @@ class DisplayItemDirective(Directive):
             col_css=col_css, 
             card_style=card_style,
             button_open_html=button_open_html,
-            button_close_html=button_close_html
+            button_close_html=button_close_html,
+            tag=tag
         )
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
@@ -308,5 +315,6 @@ DISPLAY_ITEM_TEMPLATE = """
                 <p class="body-paragraph">{description}</p>
         </div>
         {button_close_html}
+        {tag}
     </div>
 """

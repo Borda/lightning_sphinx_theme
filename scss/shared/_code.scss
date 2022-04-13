@@ -1,7 +1,7 @@
 code, kbd, pre, samp {
-  @include code_font_family;
+    font-family: 'Inconsolata';
   span {
-    @include code_font_family;
+    font-family: 'Inconsolata';
   }
 }
 

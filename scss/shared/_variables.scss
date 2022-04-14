@@ -35,7 +35,7 @@ $site_horizontal_padding: 30px;
 $baseurl: "";
 
 @mixin code_font_family {
-  font-family: IBMPlexMono,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  font-family: 'Inconsolata', 'IBMPlexMono', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'
 }
 
 @mixin desktop {

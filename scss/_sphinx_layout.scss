@@ -332,6 +332,19 @@
         color: #4F00BA;
       }
     }
+    &.reference.external {
+      min-height: 25px;
+      height: auto;
+      padding: 5px;
+      border-radius: 6px;
+      position: relative;
+      width: 100%;
+
+      &:hover {
+        background-color: #EFEEFF;
+        color: #4F00BA;
+      }
+    }
   }
 
   li {

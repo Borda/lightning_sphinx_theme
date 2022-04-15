@@ -982,6 +982,53 @@ a:hover {
   }
 }
 
+.slack-container {
+  margin: 40px 0 40px 0;
+  display: flex;
+  
+  .slack-button {
+    border: 1px solid transparent; 
+    background: linear-gradient(206.91deg, #792EE5 16.83%, #3EABB3 144.59%);
+    border-radius: 6px; 
+    height: 30px; 
+    width: 210px; 
+    justify-content:center;
+  }
+
+  a {
+    display: flex; 
+    height: 100%; 
+    text-decoration: none;
+  }
+
+  .icon {
+    height: 100%; 
+    color: white; 
+    margin-left: 10px;
+    padding-top: 2px;
+  }
+  
+  .button-title {
+    margin: auto; 
+    margin-left: 5px; 
+    margin-right: 5px; 
+    color: white;
+  }
+}
+
+.slack-align-left {
+  justify-content: flex-start;
+}
+
+.slack-align-center {
+  justify-content: center;
+}
+
+.slack-align-right {
+  justify-content: flex-end;
+}
+
+
 #tutorial-cards-container {
 
   #tutorial-cards {

@@ -325,6 +325,7 @@ class SlackButton(Directive):
         "align": directives.unchanged,
         "title": directives.unchanged,
         "width": directives.unchanged,
+        "margin": directives.unchanged,
     }
 
 
@@ -334,6 +335,11 @@ class SlackButton(Directive):
             width = '155';
             if "width" in self.options:
                 width = self.options["width"]
+            
+            # margin
+            margin = '40';
+            if "margin" in self.options:
+                margin = self.options["margin"]
             
             # title on button
             title = 'Join our community'
@@ -357,6 +363,7 @@ class SlackButton(Directive):
         callout_rst = SLACK_TEMPLATE.format(
             align=align,
             title=title,
+            margin=margin,
             width=width
         )
         callout_list = StringList(callout_rst.split("\n"))
@@ -368,7 +375,7 @@ class SlackButton(Directive):
 SLACK_TEMPLATE = """
 .. raw:: html
 
-    <div class='row slack-container {align}'> 
+    <div class='row slack-container {align}' style="margin: {margin}px 0 {margin}px 0;"> 
         <div class='slack-button' style='width: {width}px'>
             <a href="https://join.slack.com/t/pytorch-lightning/shared_invite/zt-12iz3cds1-uyyyBYJLiaL2bqVmMN7n~A" target="_blank">
             <div class="icon" data-icon="slackLogo">

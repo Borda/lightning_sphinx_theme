@@ -11764,11 +11764,13 @@ pre {
   margin-right: 0;
 }
 .header-holder .main-menu ul li a {
-  color: #ffffff;
-  font-size: 1.3rem;
-  letter-spacing: 0;
-  line-height: 2.125rem;
-  text-align: center;
+  color: #1C1C1C;
+  font-family: UCity;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.25rem;
+  letter-spacing: 0px;
+  text-align: left;
   text-decoration: none;
 }
 @media screen and (min-width: 1100px) {
@@ -12280,6 +12282,8 @@ ul.pytorch-breadcrumbs a {
 
 .tutorials-header .header-logo {
   background-image: url("../images/logo.svg");
+  height: 38px;
+  top: -10px;
 }
 .tutorials-header .main-menu ul li a {
   color: #262626;
@@ -14522,8 +14526,6 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
 }
 
 .resources-dropdown-menu {
-  left: -58px;
-  width: 226px;
   display: none;
   position: absolute;
   z-index: 1000;
@@ -14562,8 +14564,8 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   padding-right: 2rem;
   position: relative;
   background: url("../images/chevron-down-orange.svg");
-  background-size: 14px 18px;
-  background-position: top 7px right 10px;
+  background-size: 10px 15px;
+  background-position: top 0px right 12px;
   background-repeat: no-repeat;
 }
 
@@ -14580,20 +14582,14 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   background-repeat: no-repeat;
 }
 
-.header-holder .main-menu ul li .resources-dropdown .doc-dropdown-option {
-  padding-top: 1rem;
-}
-
 .header-holder .main-menu ul li a.nav-dropdown-item {
   display: block;
-  font-size: 1rem;
-  line-height: 1.3125rem;
   width: 100%;
-  padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
   color: #979797;
-  text-align: center;
+  text-align: left;
+  padding: 5px;
   background-color: transparent;
   border-bottom: 1px solid #e2e2e2;
 }
@@ -14601,19 +14597,20 @@ article.pytorch-article .tutorials-callout-container .btn.callout-button a {
   border-bottom-color: transparent;
 }
 .header-holder .main-menu ul li a.nav-dropdown-item:hover {
-  background-color: #792ee5;
-  color: white;
+  background-color: #EFEEFF;
+  color: #792ee5;
 }
 .header-holder .main-menu ul li a.nav-dropdown-item .dropdown-title {
-  font-size: 1.125rem;
+  font-family: UCity;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.375rem;
   color: #6c6c6d;
-  letter-spacing: 0;
-  line-height: 34px;
 }
 
 .header-holder .main-menu ul li a.nav-dropdown-item:hover .dropdown-title {
-  background-color: #792ee5;
-  color: white;
+  background-color: hover_background;
+  color: #792ee5;
 }
 
 /*# sourceMappingURL=theme.css.map */

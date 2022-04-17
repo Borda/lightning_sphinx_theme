@@ -30,6 +30,8 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
+import imp
+from turtle import pd
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 from docutils.statemachine import StringList
@@ -388,4 +390,61 @@ SLACK_TEMPLATE = """
             </a>
         </div>
     </div>
+"""
+
+
+class TwoColumns(Directive):
+    has_content = True
+    option_spec = {
+        "left": directives.unchanged,
+        "right": directives.unchanged,
+    }
+
+
+    def run(self):
+        try:
+            left = {}
+            if "left" in self.options:
+                left = self.options["left"]
+            
+            right = {}
+            if "right" in self.options:
+                right = self.options["right"]
+            
+        except FileNotFoundError as e:
+            print(e)
+            return []
+        except ValueError as e:
+            print(e)
+            raise
+            return []
+        callout_rst = TWO_COLUMN_TEMPLATE.format(
+            left=left,
+            right=right
+        )
+        callout_list = StringList(callout_rst.split("\n"))
+        callout = nodes.paragraph()
+        self.state.nested_parse(callout_list, self.content_offset, callout)
+        return [callout]
+
+
+TWO_COLUMN_TEMPLATE = """
+.. raw:: html
+
+   <div class="row" style='font-size: 14px; margin-bottom: 50px'>
+      <div class='col-md-6'>
+
+{left}
+
+.. raw:: html
+
+      </div>
+      <div class='col-md-6'>
+
+{right}
+
+.. raw:: html
+
+      </div>
+   </div>
 """

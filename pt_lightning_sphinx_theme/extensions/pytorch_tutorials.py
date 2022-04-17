@@ -403,11 +403,11 @@ class TwoColumns(Directive):
 
     def run(self):
         try:
-            left = {}
+            left = ''
             if "left" in self.options:
                 left = self.options["left"]
             
-            right = {}
+            right = ''
             if "right" in self.options:
                 right = self.options["right"]
             

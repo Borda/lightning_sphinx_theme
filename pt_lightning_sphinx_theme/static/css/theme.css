@@ -13245,6 +13245,7 @@ a:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  font-size: 14px;
 }
 .slack-container a {
   display: -webkit-box;

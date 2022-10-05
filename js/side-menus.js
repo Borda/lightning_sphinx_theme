@@ -93,13 +93,15 @@ window.sideMenus = {
       sideMenus.handleRightMenu();
     }
 
-    $(window).on('resize scroll', function(e) {
+    function handleNavBars() {
       sideMenus.handleNavBar();
 
       if (sideMenus.rightMenuIsOnScreen()) {
         sideMenus.handleRightMenu();
       }
-    });
+    }
+    window.addEventListener("resize", handleNavBars);
+    document.body.addEventListener("scroll", handleNavBars);
   },
 
   leftMenuIsFixed: function() {
@@ -149,9 +151,9 @@ window.sideMenus = {
     var article = document.getElementById("pytorch-article");
     var articleHeight = article.offsetHeight;
     var articleBottom = utilities.offset(article).top + articleHeight;
-    var mainHeaderHeight = document.getElementById('header-holder').offsetHeight;
+    var mainHeaderHeight = document.getElementById("header-holder").offsetHeight;
 
-    if (utilities.scrollTop() < mainHeaderHeight) {
+    if (utilities.scrollTop() <= mainHeaderHeight) {
       rightMenuWrapper.style.height = "100%";
       rightMenu.style.top = 0;
       rightMenu.classList.remove("scrolling-fixed");

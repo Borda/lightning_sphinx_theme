@@ -13,5 +13,6 @@ Symlink or subtree the ``pt_lightning_sphinx_theme`` repository into your docume
 .. code:: python
 
     html_theme = "pt_lightning_sphinx_theme"
-    html_theme_path = ["_themes", ]
-
+    html_theme_path = [
+        "_themes",
+    ]

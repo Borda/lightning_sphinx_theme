@@ -333,7 +333,7 @@ $(document).ready(function() {
 
         // show the list
         $(this).next("ul").toggle()
-        
+
         sessionStorage.setItem(menuName, "expand");
     }
   });
@@ -464,4 +464,3 @@ $(window).scroll(function () {
     }
   });
 });
-

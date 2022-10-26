@@ -30,8 +30,7 @@ CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
-import imp
-from turtle import pd
+
 from docutils import nodes
 from docutils.parsers.rst import Directive, directives
 from docutils.statemachine import StringList
@@ -97,7 +96,12 @@ class CustomCardItemDirective(SphinxDirective):
             return []
 
         card_rst = CARD_TEMPLATE.format(
-            header=header, image=image, link=link, card_description=card_description, tags=tags, beta=beta,
+            header=header,
+            image=image,
+            link=link,
+            card_description=card_description,
+            tags=tags,
+            beta=beta,
         )
         card_list = StringList(card_rst.split("\n"))
         node = cardnode()
@@ -161,17 +165,17 @@ class CustomCalloutItemDirective(Directive):
                 button_text = self.options["button_text"]
             else:
                 button_text = ""
-            
+
             if "col_css" in self.options:
                 col_css = self.options["col_css"]
             else:
                 col_css = "col-md-6"
-            
+
             if "card_style" in self.options:
                 card_style = self.options["card_style"]
             else:
                 card_style = "text-container"
-            
+
             if "image_center" in self.options:
                 image_center = "<img src='" + self.options["image_center"] + "'>"
             else:
@@ -186,7 +190,13 @@ class CustomCalloutItemDirective(Directive):
             return []
 
         callout_rst = CALLOUT_TEMPLATE.format(
-            description=description, image_center=image_center, header=header, button_link=button_link, button_text=button_text, col_css=col_css, card_style=card_style
+            description=description,
+            image_center=image_center,
+            header=header,
+            button_link=button_link,
+            button_text=button_text,
+            col_css=col_css,
+            card_style=card_style,
         )
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
@@ -209,7 +219,6 @@ CALLOUT_TEMPLATE = """
 """
 
 
-
 class DisplayItemDirective(Directive):
     option_spec = {
         "header": directives.unchanged,
@@ -230,7 +239,7 @@ class DisplayItemDirective(Directive):
                 description = self.options["description"]
             else:
                 description = ""
-            
+
             if "tag" in self.options:
                 tag = "<div class='card-tag'>" + self.options["tag"] + "</div>"
             else:
@@ -245,38 +254,38 @@ class DisplayItemDirective(Directive):
                 header = self.options["header"]
             else:
                 raise ValueError("header not doc found")
- 
+
             if "col_css" in self.options:
                 col_css = self.options["col_css"]
             else:
                 col_css = "col-md-6"
-            
+
             if "card_style" in self.options:
                 card_style = self.options["card_style"]
             else:
                 card_style = "display-card"
-            
+
             if "image_height" in self.options:
                 image_height = self.options["image_height"]
             else:
                 image_height = "125px"
-            
-            image_class = ''
+
+            image_class = ""
             if "image_center" in self.options:
                 image = "<img src='" + self.options["image_center"] + "' style=height:" + image_height + "  >"
-                image_class = 'image-center'
-            
+                image_class = "image-center"
+
             elif "image_right" in self.options:
                 image = "<img src='" + self.options["image_right"] + "' style=height:" + image_height + "  >"
-                image_class = 'image-right'
+                image_class = "image-right"
             else:
                 image = ""
-            
+
             if "button_link" in self.options:
                 button_link = self.options["button_link"]
                 button_open_html = f"<a href='{button_link}'>"
                 button_close_html = "</a>"
-                card_style = f'{card_style} display-card-hover'
+                card_style = f"{card_style} display-card-hover"
             else:
                 button_link = ""
                 button_open_html = ""
@@ -291,16 +300,16 @@ class DisplayItemDirective(Directive):
             return []
 
         callout_rst = DISPLAY_ITEM_TEMPLATE.format(
-            description=description, 
-            image=image, 
-            height=height, 
+            description=description,
+            image=image,
+            height=height,
             image_class=image_class,
-            header=header, 
-            col_css=col_css, 
+            header=header,
+            col_css=col_css,
             card_style=card_style,
             button_open_html=button_open_html,
             button_close_html=button_close_html,
-            tag=tag
+            tag=tag,
         )
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
@@ -332,28 +341,27 @@ class LikeButtonWithTitle(Directive):
         "margin": directives.unchanged,
     }
 
-
     def run(self):
         try:
             # button width
-            width = '155';
+            width = "155"
             if "width" in self.options:
                 width = self.options["width"]
 
             # margin
-            margin = '40';
+            margin = "40"
             if "margin" in self.options:
                 margin = self.options["margin"]
 
             # title on button
-            title = 'Join our community'
+            title = "Join our community"
             if "title" in self.options:
                 title = self.options["title"]
 
             # button on left, center or right of screen
-            padding = '30'
+            padding = "30"
             if "padding" in self.options:
-                align = self.options["padding"]
+                _ = self.options["padding"]
 
         except FileNotFoundError as e:
             print(e)
@@ -361,8 +369,10 @@ class LikeButtonWithTitle(Directive):
         except ValueError as e:
             print(e)
             raise
-            return []
-        callout_rst = get_react_component_rst("LikeButtonWithTitle", width=width, margin=margin, title=title, padding=padding)
+            # return []
+        callout_rst = get_react_component_rst(
+            "LikeButtonWithTitle", width=width, margin=margin, title=title, padding=padding
+        )
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
         self.state.nested_parse(callout_list, self.content_offset, callout)
@@ -377,6 +387,7 @@ class ReactGreeter(Directive):
         self.state.nested_parse(callout_list, self.content_offset, callout)
         return [callout]
 
+
 class SlackButton(Directive):
     option_spec = {
         "align": directives.unchanged,
@@ -385,30 +396,29 @@ class SlackButton(Directive):
         "margin": directives.unchanged,
     }
 
-
     def run(self):
         try:
             # button width
-            width = '155';
+            width = "155"
             if "width" in self.options:
                 width = self.options["width"]
-            
+
             # margin
-            margin = '40';
+            margin = "40"
             if "margin" in self.options:
                 margin = self.options["margin"]
-            
+
             # title on button
-            title = 'Join our community'
+            title = "Join our community"
             if "title" in self.options:
                 title = self.options["title"]
 
-            # button on left, center or right of screen 
-            align = 'left'
+            # button on left, center or right of screen
+            align = "left"
             if "align" in self.options:
                 align = self.options["align"]
 
-            align = f'slack-align-{align}'
+            align = f"slack-align-{align}"
 
         except FileNotFoundError as e:
             print(e)
@@ -417,12 +427,7 @@ class SlackButton(Directive):
             print(e)
             raise
             return []
-        callout_rst = SLACK_TEMPLATE.format(
-            align=align,
-            title=title,
-            margin=margin,
-            width=width
-        )
+        callout_rst = SLACK_TEMPLATE.format(align=align, title=title, margin=margin, width=width)
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
         self.state.nested_parse(callout_list, self.content_offset, callout)
@@ -432,7 +437,7 @@ class SlackButton(Directive):
 SLACK_TEMPLATE = """
 .. raw:: html
 
-    <div class='row slack-container {align}' style="margin: {margin}px 0 {margin}px 0;"> 
+    <div class='row slack-container {align}' style="margin: {margin}px 0 {margin}px 0;">
         <div class='slack-button' style='width: {width}px'>
             <a href="https://join.slack.com/t/pytorch-lightning/shared_invite/zt-1b6lkirxt-9b3ehI0P_31YIqQ4_Dum1A" target="_blank">
             <div class="icon" data-icon="slackLogo">
@@ -445,7 +450,7 @@ SLACK_TEMPLATE = """
             </a>
         </div>
     </div>
-"""
+"""  # noqa: E501
 
 
 class TwoColumns(Directive):
@@ -455,17 +460,16 @@ class TwoColumns(Directive):
         "right": directives.unchanged,
     }
 
-
     def run(self):
         try:
-            left = ''
+            left = ""
             if "left" in self.options:
                 left = self.options["left"]
-            
-            right = ''
+
+            right = ""
             if "right" in self.options:
                 right = self.options["right"]
-            
+
         except FileNotFoundError as e:
             print(e)
             return []
@@ -473,10 +477,7 @@ class TwoColumns(Directive):
             print(e)
             raise
             return []
-        callout_rst = TWO_COLUMN_TEMPLATE.format(
-            left=left,
-            right=right
-        )
+        callout_rst = TWO_COLUMN_TEMPLATE.format(left=left, right=right)
         callout_list = StringList(callout_rst.split("\n"))
         callout = nodes.paragraph()
         self.state.nested_parse(callout_list, self.content_offset, callout)

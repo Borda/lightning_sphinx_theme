@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """Test Module for sphinx_rtd_theme."""
 
 
@@ -29,14 +28,13 @@ class Foo:
 
     Here is a link to :py:meth:`capitalize`.
     Here is a link to :py:meth:`__init__`.
-
     """
 
     #: Doc comment for class attribute Foo.bar.
     #: It can have multiple lines.
     bar = 1
 
-    flox = 1.5   #: Doc comment for Foo.flox. One line only.
+    flox = 1.5  #: Doc comment for Foo.flox. One line only.
 
     baz = 2
     """Docstring for class attribute Foo.baz."""
@@ -48,7 +46,6 @@ class Foo:
         :type qux: string
         :param spam: Spam me yes or no...
         :type spam: bool
-
         """
         #: Doc comment for instance attribute qux.
         self.qux = 3
@@ -64,7 +61,6 @@ class Foo:
         :param val2: Second number to add.
         :type val2: int
         :rtype: int
-
         """
 
         return val1 + val2
@@ -75,14 +71,12 @@ class Foo:
         :param myvalue: String to change
         :type myvalue: string
         :rtype: string
-
         """
 
         return myvalue.upper()
 
     def another_function(self, a, b, **kwargs):
-        """
-        Here is another function.
+        """Here is another function.
 
         :param a: The number of green hats you own.
         :type a: int

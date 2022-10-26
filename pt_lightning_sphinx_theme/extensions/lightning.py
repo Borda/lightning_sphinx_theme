@@ -13,29 +13,45 @@
 # limitations under the License.
 from docutils import nodes
 from docutils.statemachine import StringList
-from pt_lightning_sphinx_theme.extensions.pytorch_tutorials import TwoColumns, cardnode, CustomCalloutItemDirective, \
-    CustomCardItemDirective, DisplayItemDirective, SlackButton, LikeButtonWithTitle, ReactGreeter
 from sphinx.util.docutils import SphinxDirective
+
+from pt_lightning_sphinx_theme.extensions.pytorch_tutorials import (
+    cardnode,
+    CustomCalloutItemDirective,
+    CustomCardItemDirective,
+    DisplayItemDirective,
+    LikeButtonWithTitle,
+    ReactGreeter,
+    SlackButton,
+    TwoColumns,
+)
 
 
 class tutoriallistnode(nodes.General, nodes.Element):
-    """A placeholder node that we can use during the first parse to later replace with the card list."""
+    """A placeholder node that we can use during the first parse to later
+    replace with the card list."""
+
     pass
 
 
 def visit_cardnode(self, node):
-    """Hook to make ``cardnode`` behave the same as a ``paragraph`` node (e.g. insert ``<p>`` tags)."""
+    """Hook to make ``cardnode`` behave the same as a ``paragraph`` node (e.g.
+    insert ``<p>`` tags)."""
     self.visit_paragraph(node)
 
 
 def depart_cardnode(self, node):
-    """Hook to make ``cardnode`` behave the same as a ``paragraph`` node (e.g. insert ``</p>`` tags)."""
+    """Hook to make ``cardnode`` behave the same as a ``paragraph`` node (e.g.
+    insert ``</p>`` tags)."""
     self.depart_paragraph(node)
 
 
 def purge_cards(app, env, docname):
-    """Hook to purge the cards from the env for the given docname. This will be called for each changed doc when
-    rebuilding, so will reset the card from that doc."""
+    """Hook to purge the cards from the env for the given docname.
+
+    This will be called for each changed doc when rebuilding, so will
+    reset the card from that doc.
+    """
     if not hasattr(env, "all_cardnodes"):
         return
 
@@ -43,7 +59,8 @@ def purge_cards(app, env, docname):
 
 
 def merge_cards(app, env, docnames, other):
-    """Hook to merge cards from multiple environments (e.g. when multi-threading)."""
+    """Hook to merge cards from multiple environments (e.g. when multi-
+    threading)."""
     if not hasattr(env, "all_cardnodes"):
         env.all_cardnodes = []
     if hasattr(other, "all_cardnodes"):
@@ -95,8 +112,10 @@ TUTORIAL_LIST_END = """
 
 
 class TutorialListDirective(SphinxDirective):
-    """Our custom directive which inserts the header and footer markup for the tutorial block with a placeholder node
-    (``tutoriallistnode``) which can be modified inplace later with the list of cards."""
+    """Our custom directive which inserts the header and footer markup for the
+    tutorial block with a placeholder node (``tutoriallistnode``) which can be
+    modified inplace later with the list of cards."""
+
     def run(self):
         start_list = StringList(TUTORIAL_LIST_START.split("\n"))
         start_node = nodes.paragraph()
@@ -129,7 +148,11 @@ def process_card_nodes(app, doctree, fromdocname):
 
 
 def setup(app):
-    """Set-up the extension. Add out custom nodes and directives, then attach our hooks to the required events."""
+    """Set-up the extension.
+
+    Add out custom nodes and directives, then attach our hooks to the
+    required events.
+    """
     app.add_node(tutoriallistnode)
     app.add_node(
         cardnode,

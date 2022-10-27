@@ -1,0 +1,30 @@
+name: Building
+
+# see: https://help.github.com/en/actions/reference/events-that-trigger-workflows
+on:  # Trigger the workflow on push or pull request, but only for the main branch
+  push:
+    branches: [main]
+  pull_request: {}
+
+jobs:
+
+  build-python:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: try install
+        run: python setup.py install --dry-run --user
+
+  build-node:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+      - run: yarn install
+      - run: mv mock.env.json .env.json
+      - run: sudo npm install -g grunt sass
+      - run: grunt build --force

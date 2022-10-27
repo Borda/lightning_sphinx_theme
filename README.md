@@ -52,7 +52,7 @@ pip uninstall pandoc
 conda install pandoc
 ```
 
-### Step 2: setup the javascript things 🤮
+### Step 2: setup the javascript environment
 
 First, install the things in package.json
 

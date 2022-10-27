@@ -83,7 +83,7 @@ Meta
    :description lang=en: A demonstration of the reStructuredText
        markup language, containing examples of all basic
        constructs and many advanced constructs.
-       
+
 Blocks
 ======
 
@@ -198,9 +198,9 @@ Emphasized lines with line numbers
 
    def some_function():
        interesting = False
-       print 'This line is highlighted.'
-       print 'This one is not...'
-       print '...but this one is.'
+       print "This line is highlighted."
+       print "This one is not..."
+       print "...but this one is."
 
 Sidebar
 =======
@@ -287,7 +287,7 @@ Glossary
 This is a glossary with definition terms for thing like :term:`Writing`:
 
 .. glossary::
-  
+
   Documentation
      Provides users with the knowledge they need to use something.
 

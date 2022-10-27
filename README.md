@@ -3,15 +3,19 @@
 Sphinx theme for [PyTorch-Lightning Docs](https://pytorch-lightning.readthedocs.io/en/latest/) based on the [Read the Docs Sphinx Theme](https://sphinx-rtd-theme.readthedocs.io/en/latest).
 
 ## Setup the project for local development
+
 This theme requires running both python commands and javascript (npm) commands.
 
 ### Step 0: Make sure you're on the conda environment you are using for pytorch-lightning
+
 ```bash
 conda activate my-pl-env
 ```
 
 ### Step 1: Python setup
+
 First, install all the docs deps for lightning
+
 ```bash
 cd /path/to/pytorch-lightning
 
@@ -21,6 +25,7 @@ pip install -r requirements/docs.txt
 ```
 
 Setup the lightning_sphinx_theme
+
 ```
 cd /path/to/lightning_sphinx_theme
 
@@ -32,6 +37,7 @@ pip install -r docs/requirements.txt
 ```
 
 If you're on a mac with conda, and you get this error:
+
 ```
 >> Pandoc wasn't found.
 >> Please check that pandoc is installed:
@@ -40,20 +46,24 @@ If you're on a mac with conda, and you get this error:
 ```
 
 then try the following command ([from this answer](https://stackoverflow.com/questions/62398231/building-docs-fails-due-to-missing-pandoc))
+
 ```
 pip uninstall pandoc
 conda install pandoc
 ```
 
-### Step 2: setup the javascript things 🤮 
+### Step 2: setup the javascript environment
+
 First, install the things in package.json
+
 ```bash
 # run yarn install (uses `package.json`)
 # you need node version 8.4.0
 yarn install
 ```
 
-For good measure, make sure your npm and ruby paths are in your .bashrc or .zshrc 
+For good measure, make sure your npm and ruby paths are in your .bashrc or .zshrc
+
 ```bash
 # ruby
 export PATH="/usr/local/opt/ruby/bin:$PATH"
@@ -63,20 +73,23 @@ export PATH=/usr/local/share/npm/bin:$PATH
 ```
 
 Make sure `grunt` works (we use grunt to see changes in real-time... ie: `hot-reload`)
+
 ```bash
 grunt
 ```
 
 Install a few npm packages
+
 ```bash
 # provides hot reload for dev
-sudo npm install -g grunt-cli 
+sudo npm install -g grunt-cli
 
 # ?
 sudo npm install -g sass
 ```
 
 ## Link the theme to the Lightning docs
+
 Create an `.env.json` file that connects this theme to the lightning docs.
 
 ```bash
@@ -85,6 +98,7 @@ touch .env.json
 ```
 
 Now copy paste the following into the `.env.json`
+
 ```json
 {
     "DOCS_DIR": "path/to/pytorch_lightning/docs/source/"
@@ -92,6 +106,7 @@ Now copy paste the following into the `.env.json`
 ```
 
 ## Development
+
 Run the docs this way
 
 ```
@@ -109,11 +124,11 @@ export PL_FAST_DOCS_DEV=0
 export PL_FAST_DOCS_DEV=1
 ```
 
-
 ### Optional: build the demo docs
+
 The lightning_sphinx_theme repo has a "demo" project (not lightning docs) that show you the styles very quickly.
 
-First add the following entry to `.env.json`. 
+First add the following entry to `.env.json`.
 
 ```json
 {
@@ -135,12 +150,12 @@ The resulting site is the lightning docs with the ability to change the styles.
 When you are ready to submit a PR with your changes you can first test that your changes have been applied correctly against either the PyTorch Docs or Tutorials repo:
 
 1. Run the `grunt build` task on your branch and commit the build to Github.
-2. In your local docs or tutorials repo, remove any existing `pt_lightning_sphinx_theme` packages in the `src` folder (there should be a `pip-delete-this-directory.txt` file there)
-3. In `requirements.txt` replace the existing git link with a link pointing to your commit or branch, e.g. `-e git+git://github.com/{ your repo }/lightning_sphinx_theme.git@{ your commit hash }#egg=pt_lightning_sphinx_theme`
-4. Install the requirements `pip install -r requirements.txt`
-5. Remove the current build. In the docs this is `make clean`, tutorials is `make clean-cache`
-6. Build the static site. In the docs this is `make html`, tutorials is `make html-noplot`
-7. Open the site and look around. In the docs open `docs/build/html/index.html`, in the tutorials open `_build/html.index.html`
+1. In your local docs or tutorials repo, remove any existing `pt_lightning_sphinx_theme` packages in the `src` folder (there should be a `pip-delete-this-directory.txt` file there)
+1. In `requirements.txt` replace the existing git link with a link pointing to your commit or branch, e.g. `-e git+git://github.com/{ your repo }/lightning_sphinx_theme.git@{ your commit hash }#egg=pt_lightning_sphinx_theme`
+1. Install the requirements `pip install -r requirements.txt`
+1. Remove the current build. In the docs this is `make clean`, tutorials is `make clean-cache`
+1. Build the static site. In the docs this is `make html`, tutorials is `make html-noplot`
+1. Open the site and look around. In the docs open `docs/build/html/index.html`, in the tutorials open `_build/html.index.html`
 
 If your changes have been applied successfully, remove the build commit from your branch and submit your PR.
 
@@ -203,6 +218,7 @@ You can then build the Docs or Tutorials by running
 ```
 grunt --project=docs
 ```
+
 or
 
 ```

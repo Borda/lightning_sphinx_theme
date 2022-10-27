@@ -401,7 +401,7 @@
   // the toctree menu (currently selected)
   li.toctree-l1.current > a {
     color: $color_primary;
- 
+
     &:before {
       content: "";
       display: block;

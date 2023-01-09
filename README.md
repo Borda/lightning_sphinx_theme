@@ -26,7 +26,7 @@ pip install -r requirements/docs.txt
 
 Setup the lightning_sphinx_theme
 
-```
+```bash
 cd /path/to/lightning_sphinx_theme
 
 # install project
@@ -47,7 +47,7 @@ If you're on a mac with conda, and you get this error:
 
 then try the following command ([from this answer](https://stackoverflow.com/questions/62398231/building-docs-fails-due-to-missing-pandoc))
 
-```
+```bash
 pip uninstall pandoc
 conda install pandoc
 ```
@@ -139,7 +139,7 @@ First add the following entry to `.env.json`.
 
 and now build the "demo" docs with this command
 
-```
+```bash
 grunt --project=tutorials
 ```
 
@@ -163,7 +163,7 @@ If your changes have been applied successfully, remove the build commit from you
 
 Before the new changes are visible in the theme the maintainer will need to run the build process:
 
-```
+```bash
 grunt build
 ```
 
@@ -182,14 +182,14 @@ Once the docs have been successfully generated you should be able to run the fol
 
 #### Docs
 
-```
+```bash
 # in ./docs
 make html
 ```
 
 #### Tutorials
 
-```
+```bash
 # root directory
 make html
 ```
@@ -198,14 +198,14 @@ Once these are successful, navigate to the `conf.py` file in each project. In th
 
 In `conf.py` change the html theme to `pt_lightning_sphinx_theme` and point the html theme path to this repo's local folder, which will end up looking something like:
 
-```
-html_theme = 'pt_lightning_sphinx_theme'
+```python
+html_theme = "pt_lightning_sphinx_theme"
 html_theme_path = ["../../../lightning_sphinx_theme"]
 ```
 
 Next create a file `.env.json` in the root of the THEME repo with some keys/values referencing the local folders of the Docs and Tutorials repos:
 
-```
+```json
 {
   "TUTORIALS_DIR": "../tutorials",
   "DOCS_DIR": "../pytorch_lightning/docs/source"
@@ -215,13 +215,13 @@ Next create a file `.env.json` in the root of the THEME repo with some keys/valu
 
 You can then build the Docs or Tutorials by running
 
-```
+```bash
 grunt --project=docs
 ```
 
 or
 
-```
+```bash
 grunt --project=tutorials
 ```
 
@@ -235,7 +235,7 @@ There are a couple of stylesheets and fonts inside the Docs and Tutorials repos 
 
 #### Docs
 
-```
+```python
 # ./docs/source/conf.py
 
 html_context = {
@@ -248,21 +248,22 @@ html_context = {
 
 #### Tutorials
 
-```
+```python
 # ./conf.py
+app = ...
 
-# app.add_stylesheet('css/pytorch_theme.css')
-# app.add_stylesheet('https://fonts.googleapis.com/css?family=Lato')
+app.add_stylesheet("css/pytorch_theme.css")
+app.add_stylesheet("https://fonts.googleapis.com/css?family=Lato")
 ```
 
 ### Top/Mobile Navigation
 
 The top navigation and mobile menu expect an "active" state for one of the menu items. To ensure that either "Docs" or "Tutorials" is marked as active, set the following config value in the respective `conf.py`, where `{project}` is either `"docs"` or `"tutorials"`.
 
-```
+```python
 html_theme_options = {
-  ...
-  'pytorch_project': {project}
-  ...
+    # ...
+    "pytorch_project": "project-name",
+    # ...
 }
 ```

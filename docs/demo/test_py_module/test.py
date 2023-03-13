@@ -2,7 +2,6 @@
 
 
 class Foo:
-
     """Docstring for class Foo.
 
     This text tests for the formatting of docstrings generated from output

@@ -176,13 +176,20 @@
             </div>
           </li>-->
 
+          {% if theme_variables.external_urls['versions'] %}
+          <li>
+            <a href="{{ theme_variables.external_urls['versions'] }}">Previous Versions</a>
+          </li>
+          {%  endif %}
+
           <li>
             <a href="{{ theme_variables.external_urls['github'] }}">GitHub</a>
           </li>
 
           <li>
-            <a href="https://www.lightning.ai/">Train on the cloud with Lightning</a>
+            <a href="https://www.lightning.ai/">Lightning AI</a>
           </li>
+
         </ul>
       </div>
 

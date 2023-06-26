@@ -27,7 +27,7 @@ defer(function () {
 });
 
 
-  
+
   document.addEventListener('DOMContentLoaded', function () {
     // Make sure the correct version is selected on page load, default is latest
     loadVersion();
@@ -35,7 +35,7 @@ defer(function () {
 
   function loadVersion(){
     let selector = document.getElementById('version-select');
-    selector.querySelectorAll("option").forEach(option => { 
+    selector.querySelectorAll("option").forEach(option => {
       if (window.location.href.includes(option.value)){
         selector.value = option.value;
       }
@@ -53,7 +53,7 @@ defer(function () {
     let selector = document.getElementById('version-select');
     let selectedDate = selector.options[selector.selectedIndex].getAttribute("data-date");
     document.getElementById("selected-date").innerHTML = selectedDate;
-    selector.querySelectorAll("option").forEach(option => { 
+    selector.querySelectorAll("option").forEach(option => {
       if (pageUrl.includes(option.value)){
         currentVersion = option.value;
         newPath = pageUrl.replace(option.value, value);
